@@ -2,8 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const avatar = document.getElementById('avatar');
   if (!avatar) return;
 
-  const originalSrc = 'img/propstfake.gif';
-  const newSrc = 'img/tenna.gif';
+  const originalSrc = '/src/assets/img/propstfake.gif';
+  const newSrc = '/src/assets/img/tenna.gif';
 
   let isChanged = false;
   let revertClicks = 0;
