@@ -3,6 +3,24 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="h-[50vh]"><h1>404, womp womp</h1></section>
-  <section class="h-[50vh] bg-white"></section>
+  <section class="flex flex-col justify-center items-center h-screen text-center px-4 space-y-6">
+    <!-- Imagen más grande y encima del texto -->
+    <div class="w-80 h-80 sm:w-[28rem] sm:h-[28rem]">
+      <img 
+        src="/src/assets/img/technical-difficulties-tenna.gif" 
+        alt="404 illustration" 
+        class="w-full h-full object-contain"
+      />
+    </div>
+
+    <h1 class="text-7xl font-bold text-red-500">404</h1>
+    <p class="text-2xl text-gray-400">Oops... page not found</p>
+
+    <a 
+      href="/" 
+      class="mt-4 text-lg px-6 py-2 bg-[#1f2937] text-white rounded-xl hover:bg-[#374151] transition"
+    >
+      Return to index
+    </a>
+  </section>
 </Layout>
