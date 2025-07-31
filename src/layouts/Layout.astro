@@ -1,26 +1,44 @@
 ---
---- 
-<!DOCTYPE html>
+import { slide } from "astro:transitions";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+import ClientRouter from "astro/components/ClientRouter.astro";
+---
+
+<!doctype html>
 <html lang="en" class="bg-[#0f1117] text-gray-200 font-mono">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>~ propstgonz</title>
-		<link rel="icon" href="/src/assets/favicon/propstgonz-favicon.svg" type="image/svg+xml" />
-		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-		<link rel="stylesheet" href="/src/assets/css/styles.css" />
-		<meta name="description" content="propstgonz - personal site of Alejandro Propst. Nerdy, messy, honest." />
-		<!-- Google tag (gtag.js) -->
-		<script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-4WG6H9DMB9"></script>
-		<script is:inline>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){window.dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'G-4WG6H9DMB9');
-		</script>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>~ propstgonz</title>
+    <link
+      rel="icon"
+      href="/src/assets/favicon/propstgonz-favicon.svg"
+      type="image/svg+xml"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="/src/assets/css/styles.css" />
+    <meta
+      name="description"
+      content="propstgonz - personal site of Alejandro Propst. Nerdy, messy, honest."
+    />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      is:inline
+      src="https://www.googletagmanager.com/gtag/js?id=G-4WG6H9DMB9"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-4WG6H9DMB9");
+    </script>
+	<ClientRouter />
+  </head>
+  <body transition:animate={slide({duration:"1s"})}>
+    <slot />
+    <Footer />
+  </body>
 </html>
-  
