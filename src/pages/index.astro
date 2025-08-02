@@ -2,6 +2,9 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import Tools from "../components/Tools.astro";
+import Logs from "../components/Logs.astro";
+import Philosophy from "../components/Philosophy.astro";
 ---
 
 <Layout>
@@ -9,81 +12,13 @@ import Header from "../components/Header.astro";
   <!-- Main -->
   <main class="max-w-2xl mx-auto space-y-10">
     <!-- Logs -->
-    <section>
-      <h2 class="text-lg font-semibold text-[#D99058] mb-3">[ logs ]</h2>
-      <ul class="font-mono text-sm text-green-300 space-y-2">
-        <li>
-          [2025-07-28] updated this page and have started preparing to migrate
-          it to Astro
-        </li>
-        <li>
-          [2025-07-16] went back to Ubuntu for compatibility with some
-          government programs
-        </li>
-        <li>[2025-07-2] fixed my mailserver</li>
-      </ul>
-      <div id="rotating-fish-container" class="ascii-art mt-4 text-center">
-      </div>
-    </section>
+    <Logs />
 
     <!-- Tools -->
-    <section>
-      <h2 class="text-lg font-semibold text-[#D99058] mb-3">
-        [ tools I kinda know how to use ]
-      </h2>
-      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/html-logo.png" class="w-5 h-5" /> HTML /
-          CSS
-        </li>
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/javascript-logo.png" class="w-5 h-5" />
-          JavaScript
-        </li>
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/postfix.png" class="w-5 h-5" /> Postfix
-          & Dovecot
-        </li>
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/apache-logo.png" class="w-5 h-5" /> Nginx
-          / Apache
-        </li>
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/docker-logo.png" class="w-5 h-5" /> Docker
-        </li>
-        <li
-          class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
-        >
-          <img src="/src/assets/img/logo/Tux-logo.png" class="w-5 h-5" /> GNU/Linux bash
-        </li>
-      </ul>
-    </section>
+    <Tools />
 
     <!-- Philosophy -->
-    <section>
-      <h2 class="text-lg font-semibold text-[#D99058] mb-3">
-        [ a bit more human, I guess ]
-      </h2>
-      <p class="text-sm text-gray-300 leading-relaxed">
-        Life is not about seeking comfort or certainty, but about embracing the
-        chaos within and around us. True strength arises when we confront our
-        deepest fears and contradictions, transforming them into fuel for our
-        growth. In the struggle of becoming, we find our authentic selves—not in
-        conformity, but in the bold creation of our own values. To live fully is
-        to say ‘yes’ to life’s challenges, to endure its suffering, and to rise
-        beyond it, forging meaning where none existed before.
-      </p>
-    </section>
+    <Philosophy />
 
     <!-- My Stuff -->
     <section>

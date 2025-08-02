@@ -1,0 +1,19 @@
+---
+import { tools } from "../data/tools";
+---
+
+<section>
+  <h2 class="text-lg font-semibold text-[#D99058] mb-3">
+    [ tools I kinda know how to use ]
+  </h2>
+  <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+    {
+      tools.map((tool) => (
+        <li class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2">
+          <img src={tool.icon} alt={`${tool.name} logo`} class="w-5 h-5" />
+          {tool.name}
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,20 @@
+---
+import { logs } from "../data/logs";
+---
+
+<section>
+  <h2 class="text-lg font-semibold text-[#D99058] mb-3">[ logs ]</h2>
+  <ul class="font-mono text-sm text-green-300 space-y-2">
+    {
+      logs.map((log) => (
+        <li>
+          [{log.date}] {log.message}
+        </li>
+      ))
+    }
+  </ul>
+
+  <div id="rotating-fish-container" class="ascii-art mt-4 text-center">
+    <!-- Aquí iría tu pececillo -->
+  </div>
+</section>
