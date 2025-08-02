@@ -1,0 +1,34 @@
+---
+import { contact } from "../data/contact";
+---
+
+<section>
+  <h2 class="text-lg font-semibold text-[#D99058] mb-3">
+    [ reach me / socials ]
+  </h2>
+  <div class="flex space-x-4 text-sm">
+    {contact.map((social) => (
+      social.external ? (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:underline text-white"
+        >
+          {social.label}
+        </a>
+      ) : (
+        <a
+          href={social.href}
+          class="hover:underline text-white"
+        >
+          {social.label}
+        </a>
+      )
+    ))}
+  </div>
+  <p class="text-xs text-gray-500 mt-3">
+    Also valid:
+    <code>curl propstgonz.dev/contact (fake, I'll not buy another domain)</code>
+  </p>
+</section>
