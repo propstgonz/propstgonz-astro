@@ -7,21 +7,27 @@ import { stuff } from "../data/stuff.ts";
     [ my stuff / where I put things ]
   </h2>
   <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
-    {stuff.map(item => (
-      <li
-        class="tool-button"
-        {...(item.action.type === "modal" && { [String(item.action.dataAttr)]: true })}
-        {...(item.action.type === "link" && { onClick: `location.href='${item.action.href}'` })}
-        {...(item.action.type === "external" && {
-          onClick: `window.open('${item.action.href}', '_blank')`
-        })}
-      >
-        {item.action.type === "internal-link" ? (
-          <a href={item.action.href}>{item.label}</a>
-        ) : (
-          item.label
-        )}
-      </li>
-    ))}
+    {
+      stuff.map((item) => (
+        <li
+          class="tool-button"
+          {...(item.action.type === "modal" && {
+            [String(item.action.dataAttr)]: true,
+          })}
+          {...(item.action.type === "link" && {
+            onClick: `location.href='${item.action.href}'`,
+          })}
+          {...(item.action.type === "external" && {
+            onClick: `window.open('${item.action.href}', '_blank')`,
+          })}
+        >
+          {item.action.type === "internal-link" ? (
+            <a href={item.action.href}>{item.label}</a>
+          ) : (
+            item.label
+          )}
+        </li>
+      ))
+    }
   </ul>
 </section>

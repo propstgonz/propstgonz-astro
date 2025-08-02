@@ -7,25 +7,24 @@ import { contact } from "../data/contact";
     [ reach me / socials ]
   </h2>
   <div class="flex space-x-4 text-sm">
-    {contact.map((social) => (
-      social.external ? (
-        <a
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:underline text-white"
-        >
-          {social.label}
-        </a>
-      ) : (
-        <a
-          href={social.href}
-          class="hover:underline text-white"
-        >
-          {social.label}
-        </a>
+    {
+      contact.map((social) =>
+        social.external ? (
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:underline text-white"
+          >
+            {social.label}
+          </a>
+        ) : (
+          <a href={social.href} class="hover:underline text-white">
+            {social.label}
+          </a>
+        )
       )
-    ))}
+    }
   </div>
   <p class="text-xs text-gray-500 mt-3">
     Also valid:
