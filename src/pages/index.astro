@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 ---
@@ -63,7 +64,7 @@ import Header from "../components/Header.astro";
         <li
           class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2"
         >
-          <img src="/src/assets/img/logo/Tux-logo.png" class="w-5 h-5" /> Linux
+          <img src="/src/assets/img/logo/Tux-logo.png" class="w-5 h-5" /> GNU/Linux bash
         </li>
       </ul>
     </section>
@@ -142,8 +143,4 @@ import Header from "../components/Header.astro";
     <div class="close" data-close-vision-modal>X</div>
     <img src="/src/happy18.p" alt="Vision" />
   </div>
-
-  <!-- Scripts -->
-  <script src="/src/assets/scripts/scripts.js"></script>
-  <script src="/src/assets/scripts/change-avatar.js"></script>
 </Layout>

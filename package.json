@@ -10,8 +10,13 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.3.3",
+    "@astrojs/preact": "^4.1.0",
+    "@astrojs/react": "^4.3.0",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.5",
+    "preact": "^10.27.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.11",
     "typed.js": "^2.1.0"
   }
