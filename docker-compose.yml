@@ -1,8 +1,18 @@
 services:
   web:
+    container_name: propstgonz-web
     build: .
-    ports:
-      - "4321:4321"
     environment:
-      DATABASE_URL: mysql://propstgonz:512670@db:3306/astro
     restart: unless-stopped
+    networks:
+      - traefik-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.propstgonz.rule=Host(`propstgonz.baronette.es`)"
+      - "traefik.http.routers.propstgonz.entrypoints=websecure"
+      - "traefik.http.routers.propstgonz.tls=true"
+      - "traefik.http.services.propstgonz.loadbalancer.server.port=4321"
+
+networks:
+  traefik-net:
+    external: true
