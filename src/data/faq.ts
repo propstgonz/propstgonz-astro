@@ -28,7 +28,7 @@ I solve practical problems, like "My printer isn't working" or "My [insert famil
   },
   {
     question: "You will update this site?",
-    answer: `I'm in the process of migrating the site to Astro. I’m not sure when it’ll be done, but a rework is likely coming as well.`
+    answer: `Who knows, maybe every two months or every year, it's just a matter of pure chance: a 0.25% probability each day`
   },
   {
     question: "Why the terminal look?",
