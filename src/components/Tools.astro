@@ -1,5 +1,6 @@
 ---
 import { tools } from "../data/tools";
+import { Image } from "astro:assets";
 ---
 
 <section>
@@ -10,7 +11,14 @@ import { tools } from "../data/tools";
     {
       tools.map((tool) => (
         <li class="bg-[#1f2937] p-2 border border-gray-600 rounded flex items-center gap-2">
-          <img src={tool.icon} alt={`${tool.name} logo`} class="w-5 h-5" />
+          <Image
+            src={tool.icon}
+            alt={`${tool.name} logo`}
+            width={20}
+            height={20}
+            class="w-5 h-5"
+            loading="eager"
+          />
           {tool.name}
         </li>
       ))

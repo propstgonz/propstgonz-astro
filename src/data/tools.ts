@@ -1,8 +1,15 @@
+import htmlLogo from "../assets/img/logo/html-logo.png";
+import jsLogo from "../assets/img/logo/javascript-logo.png";
+import postfixLogo from "../assets/img/logo/postfix.png";
+import apacheLogo from "../assets/img/logo/apache-logo.png";
+import dockerLogo from "../assets/img/logo/docker-logo.png";
+import tuxLogo from "../assets/img/logo/Tux-logo.png";
+
 export const tools = [
-  { name: "HTML / CSS", icon: "/src/assets/img/logo/html-logo.png" },
-  { name: "JavaScript", icon: "/src/assets/img/logo/javascript-logo.png" },
-  { name: "Postfix & Dovecot", icon: "/src/assets/img/logo/postfix.png" },
-  { name: "Nginx / Apache", icon: "/src/assets/img/logo/apache-logo.png" },
-  { name: "Docker", icon: "/src/assets/img/logo/docker-logo.png" },
-  { name: "GNU/Linux bash", icon: "/src/assets/img/logo/Tux-logo.png" },
+  { name: "HTML / CSS", icon: htmlLogo },
+  { name: "JavaScript", icon: jsLogo },
+  { name: "Postfix & Dovecot", icon: postfixLogo },
+  { name: "Nginx / Apache", icon: apacheLogo },
+  { name: "Docker", icon: dockerLogo },
+  { name: "GNU/Linux bash", icon: tuxLogo },
 ];
