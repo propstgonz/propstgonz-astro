@@ -5,75 +5,31 @@ import Header from "../components/Header.astro";
 import Tools from "../components/Tools.astro";
 import Logs from "../components/Logs.astro";
 import Philosophy from "../components/Philosophy.astro";
+import Stuff from "../components/Stuff.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout>
   <Header />
-  <!-- Main -->
+  {/* Main */}
   <main class="max-w-2xl mx-auto space-y-10">
-    <!-- Logs -->
+    {/* Logs */}
     <Logs />
 
-    <!-- Tools -->
+    {/* Tools */}
     <Tools />
 
-    <!-- Philosophy -->
+    {/* Philosophy */}
     <Philosophy />
 
-    <!-- My Stuff -->
-    <section>
-      <h2 class="text-lg font-semibold text-[#D99058] mb-3">
-        [ my stuff / where I put things ]
-      </h2>
-      <ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
-        <li class="tool-button" onclick="location.href='/pc/'">
-          🖥️ My computers
-        </li>
-        <li class="tool-button" data-vision-modal>🌌 My vision</li>
-        <li class="tool-button" onclick="location.href='/faq/'">❓ FAQ</li>
-        <li class="tool-button" onclick="location.href='/hub/'">🔗 My hub</li>
-        <li class="tool-button">
-          <a href="/clicker"> 📈 Clicker</a>
-        </li>
-        <li
-          class="tool-button"
-          onclick="window.open('https://youtu.be/iik25wqIuFo?si=iAz2SpMPNyqpUVr_', '_blank')"
-        >
-          😹 Funny kitty videos
-        </li>
-      </ul>
-    </section>
+    {/* Stuff */}
+    <Stuff />
 
-    <!-- Contact -->
-    <section>
-      <h2 class="text-lg font-semibold text-[#D99058] mb-3">
-        [ reach me / socials ]
-      </h2>
-      <div class="flex space-x-4 text-sm">
-        <a
-          href="https://github.com/propstgonz"
-          target="_blank"
-          class="hover:underline text-white">GitHub</a
-        >
-        <a
-          href="https://discord.com/users/1000141861333258393"
-          target="_blank"
-          class="hover:underline text-white">Discord</a
-        >
-        <a
-          href="mailto:propstgonz@baronette.es"
-          class="hover:underline text-white">Email</a
-        >
-      </div>
-      <p class="text-xs text-gray-500 mt-3">
-        Also valid: <code
-          >curl propstgonz.dev/contact (fake, I'll not buy another domain)</code
-        >
-      </p>
-    </section>
+    {/* Contact */}
+    <Contact />
   </main>
 
-  <!-- Vision Modal -->
+  {/* Vision Modal */}
   <div id="visionModal" style="display:none;">
     <div class="close" data-close-vision-modal>X</div>
     <img src="/src/happy18.p" alt="Vision" />
