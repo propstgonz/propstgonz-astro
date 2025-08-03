@@ -1,7 +1,7 @@
 export const stuff = [
   {
     label: "🖥️ My computers",
-    action: { type: "link", href: "/pc/" }
+    action: { type: "link", href: "/computers" }
   },
   {
     label: "🌌 My vision",
@@ -9,11 +9,11 @@ export const stuff = [
   },
   {
     label: "❓ FAQ",
-    action: { type: "link", href: "/faq/" }
+    action: { type: "link", href: "/faq" }
   },
   {
     label: "🔗 My hub",
-    action: { type: "link", href: "/hub/" }
+    action: { type: "link", href: "/hub" }
   },
   {
     label: "📈 Clicker",
