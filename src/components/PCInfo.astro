@@ -1,0 +1,27 @@
+---
+interface Props {
+  name: string;
+  ascii: string;
+  specs: Record<string, string>;
+}
+const { name, ascii, specs } = Astro.props;
+---
+
+<div
+  class="bg-[#1f2937] border border-gray-600 p-4 sm:p-6 rounded-lg shadow-lg w-full max-w-3xl"
+>
+  <div class="hidden sm:block overflow-x-auto">
+    <pre
+      class="text-sm text-green-300 leading-relaxed whitespace-pre font-mono">{ascii}</pre>
+  </div>
+
+  <div class="block sm:hidden text-green-300 text-sm space-y-1 mt-2">
+    {
+      Object.entries(specs).map(([key, value]) => (
+        <p>
+          <span class="font-bold">{key}:</span> {value}
+        </p>
+      ))
+    }
+  </div>
+</div>

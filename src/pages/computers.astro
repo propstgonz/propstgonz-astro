@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PCInfo from "../components/PCInfo.astro";
+import { computers } from "../data/computers";
+---
+
+<Layout>
+  <main
+    class="min-h-screen flex flex-col items-center justify-center gap-6 p-4 sm:p-6"
+  >
+    {
+      computers.map((pc) => (
+        <PCInfo
+          name={pc.name}
+          ascii={pc.ascii}
+          specs={Object.fromEntries(
+            Object.entries(pc.specs).map(([k, v]) => [k, v ?? ""])
+          )}
+        />
+      ))
+    }
+  </main>
+</Layout>
