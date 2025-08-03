@@ -5,7 +5,7 @@ export const stuff = [
   },
   {
     label: "🌌 My vision",
-    action: { type: "modal", dataAttr: "data-vision-modal" }
+    action: { type: "link", href: "/vision" }
   },
   {
     label: "❓ FAQ",
