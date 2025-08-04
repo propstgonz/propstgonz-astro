@@ -2,7 +2,6 @@ services:
   web:
     container_name: propstgonz-web
     build: .
-    environment:
     restart: unless-stopped
     networks:
       - traefik-net
