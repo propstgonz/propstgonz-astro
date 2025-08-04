@@ -12,6 +12,7 @@ import pfp1 from "../assets/img/propstfake.gif";
         class="rounded-full border-4 border-orange-300 overflow-hidden w-24 h-24 shrink-0 self-start"
       >
         <Image
+          id="avatar"
           src={pfp1}
           alt="my fake pfp"
           class="w-full h-full object-cover"
@@ -32,9 +33,11 @@ import pfp1 from "../assets/img/propstfake.gif";
       </div>
     </div>
   </div>
+
   <script>
     import { startTyping } from "../assets/scripts/typewriter.js";
     startTyping();
   </script>
-</header>
 
+  <script type="module" src="/src/assets/scripts/change-avatar.js"></script>
+</header>
