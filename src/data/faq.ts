@@ -24,11 +24,13 @@ I solve practical problems, like "My printer isn't working" or "My [insert famil
   },
   {
     question: "Do you accept contributions?",
-    answer: `I appreciate interest, but most projects here are personal. However, feel free to suggest ideas or improvements!`
+    answer: `I appreciate interest, but most projects here are personal.`
   },
   {
     question: "You will update this site?",
-    answer: `Who knows, maybe every two months or every year, it's just a matter of pure chance: a 0.25% probability each day`
+    answer: `Who knows, maybe every two months or once a year — it’s just pure chance: a 0.25% probability each day.
+            This site was recently migrated, so IDK. (tbh, I enjoyed the process.) 
+            Just kidding — I actually want to update it, so I’ll try to add new things every week. (99% lying.)`
   },
   {
     question: "Why the terminal look?",
