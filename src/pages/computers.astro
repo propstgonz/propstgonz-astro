@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PCInfo from "../components/PCInfo.astro";
 import { computers } from "../data/computers";
+export const prerender = true
 ---
 
 <Layout>
@@ -10,7 +11,7 @@ import { computers } from "../data/computers";
   >
     {
       computers.map((pc) => (
-        <PCInfo
+        <PCInfo server:defer
           name={pc.name}
           ascii={pc.ascii}
           specs={Object.fromEntries(
