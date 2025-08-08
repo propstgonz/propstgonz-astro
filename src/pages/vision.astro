@@ -2,8 +2,14 @@
 import FullScreenImage from "../components/FullScreenImage.astro";
 import happy18 from "../assets/img/happy18.png";
 import Layout from "../layouts/Layout.astro";
+
+const PAGE_PROPS = {
+  title: "Home Page",
+  description: "personal site of Alejandro Propst. Nerdy, messy, honest.",
+  image: "/metaimage.png",
+};
 ---
 
-<Layout>
+<Layout {...PAGE_PROPS}>
   <FullScreenImage src={happy18.src} alt="Happy 18" />
 </Layout>

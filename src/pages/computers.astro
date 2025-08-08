@@ -3,9 +3,15 @@ import Layout from "../layouts/Layout.astro";
 import PCInfo from "../components/PCInfo.astro";
 import { computers } from "../data/computers";
 export const prerender = true
+
+const PAGE_PROPS = {
+  title: "Computers",
+  description: "my computers.",
+  image: "/metaimage.png",
+};
 ---
 
-<Layout>
+<Layout {...PAGE_PROPS}>
   <main
     class="min-h-screen flex flex-col items-center justify-center gap-6 p-4 sm:p-6"
   >

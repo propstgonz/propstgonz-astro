@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const PAGE_PROPS = {
+  title: "Home Page",
+  description: "personal site of Alejandro Propst. Nerdy, messy, honest.",
+  image: "/metaimage.png",
+};
 ---
 
-<Layout>
+<Layout {...PAGE_PROPS}>
   <main class="flex items-center justify-center min-h-screen">
     <div class="flex flex-col items-center gap-6">
       <h1 class="text-3xl text-[#D99058]">[ global clicker experiment (Doesn't work rn, it's just decoration...) ]</h1>
