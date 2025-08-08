@@ -1,14 +1,9 @@
 ---
 title: 'My First Blog Post'
 pubDate: 2025-08-08
-author:   
-- Propst
-layout: ../../layouts/BlogPost.astro
+author: 'Propst'
+layout: ../../layouts/BlogPostLayout.astro
 ---
-
-# My First Blog Post
-
-Published on: 2022-07-01
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
 
