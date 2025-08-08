@@ -1,0 +1,31 @@
+---
+import Layout from './Layout.astro';
+import fallbackImg from "../assets/img/happy18.png";
+
+const { frontmatter } = Astro.props;
+
+const PAGE_PROPS = {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  image: frontmatter.image,
+};
+---
+
+<Layout {...PAGE_PROPS}>
+  <h1>{frontmatter.title}</h1>
+  <p>Fecha de publicación: {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p>Autor: {frontmatter.author}</p>
+  <p><em>{frontmatter.description}</em></p>
+  <div class="mt-12 flex justify-center">
+  {frontmatter.image
+    ? <img width="auto" src={frontmatter.image.url} alt={frontmatter.image.alt} />
+    : <img src={fallbackImg.src} alt="default post img" />
+  }
+  </div>
+  <article class="py-20 px-12 text-justify lg:max-w-[50%] mx-auto">
+    <slot />
+  </article>
+  <div class="flex justify-center">
+    <a class="rounded-md px-8 py-2 mt-12 bg-cyan-300 text-neutral-900 hover:bg-cyan-400 hover:text-neutral-100 transition-colors duration-300" href="/blog">Volver</a>
+  </div>
+</Layout>
