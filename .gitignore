@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Web antigua
 webold/
+
+# gitzen local config
+gitzen.config.json
