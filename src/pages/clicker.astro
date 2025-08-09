@@ -2,20 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 
 const PAGE_PROPS = {
-  title: "Clicker",
-  description: "Click global counter",
-  image: "/metaimage.png",
+  title: 'Clicker',
+  description: 'Click global counter',
+  image: '/metaimage.png',
 };
 ---
 
 <Layout {...PAGE_PROPS}>
   <main class="flex items-center justify-center min-h-screen">
     <div class="flex flex-col items-center gap-6">
-      <h1 class="text-3xl text-[#D99058]">[ global clicker experiment (Doesn't work rn, it's just decoration...) ]</h1>
+      <h1 class="text-3xl text-[#D99058]">[ global clicker experiment ]</h1>
 
-      <div id="click-count" class="text-[6rem] font-extrabold text-orange-400 leading-none">
-        0
-      </div>
+      <div id="click-count" class="text-[6rem] font-extrabold text-orange-400 leading-none">0</div>
 
       <button
         id="click-button"
@@ -26,5 +24,27 @@ const PAGE_PROPS = {
     </div>
   </main>
 
-  <script type="module" src="/src/assets/scripts/clicker.js"></script>
+  <script type="module" lang="ts">
+    const countEl = document.getElementById('click-count');
+    const buttonEl = document.getElementById('click-button');
+
+    if (!countEl || !buttonEl) {
+      throw new Error('No se encontraron los elementos del contador o el botón');
+    }
+
+    async function loadCount() {
+      const res = await fetch('/api/click');
+      const data = await res.json();
+      countEl.textContent = data.count;
+    }
+
+    async function incrementCount() {
+      const res = await fetch('/api/click', { method: 'POST' });
+      const data = await res.json();
+      countEl.textContent = data.count;
+    }
+
+    buttonEl.addEventListener('click', incrementCount);
+    loadCount();
+  </script>
 </Layout>
