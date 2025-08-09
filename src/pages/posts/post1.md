@@ -1,20 +1,10 @@
 ---
-title: 'My First Blog Post'
-pubDate: 2025-08-08
+title: 'La primera entrada del blog'
+pubDate: 2025-08-09
 author: 'Propst'
 layout: ../../layouts/BlogPostLayout.astro
 ---
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+## Tras esclavizar a Mezzenas y leerme de nuevo la puta documentación de Astro, ya está terminado el blog.
 
-## What I've accomplished
-
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
-
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
-
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
-
-## What's next
-
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+Espero no escribir muchas subnormalidades en este sitio (probablemente lo haré y os vais a tener que joder).

@@ -2,18 +2,51 @@
 import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
 
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+let allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+
+allPosts = allPosts.sort(
+  (a: any, b: any) =>
+    new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
+);
 
 const PAGE_PROPS = {
-  title: "Blog",
-  description: "Cuaderno de bitácora de Alejandro Propst",
-  image: "/happy18.png"
+  title: 'Blog',
+  description: 'Cuaderno de bitácora de Alejandro Propst',
+  image: '/logbook.png',
 };
 ---
 
 <Layout {...PAGE_PROPS}>
-  <h1>Blog test</h1>
-  <ul>
-    {allPosts.map((post: any) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
-  </ul>
+  <section class="max-w-3xl mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center">
+      Welcome to my blog entries
+      <span class="block text-lg text-gray-500">
+        (In Spanish cuz I'm so lazy to write them in English)
+      </span>
+    </h1>
+
+    <div class="flex flex-col gap-6">
+      {
+        allPosts.map((post: any) => {
+          const dateObj = new Date(post.frontmatter.date);
+          const hasValidDate = post.frontmatter.date && !isNaN(dateObj.getTime());
+
+          return (
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition">
+              <BlogPost url={post.url} title={post.frontmatter.title} />
+              {hasValidDate && (
+                <p class="text-sm text-gray-500 mt-1">
+                  {dateObj.toLocaleDateString('es-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </p>
+              )}
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
 </Layout>
