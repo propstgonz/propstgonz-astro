@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
 
-let allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+let allPosts = Object.values(import.meta.glob('./blog/*.md', { eager: true }));
 
 allPosts = allPosts.sort(
   (a: any, b: any) =>
