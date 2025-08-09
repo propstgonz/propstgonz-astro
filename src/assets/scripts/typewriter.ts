@@ -1,9 +1,9 @@
-const messages = [
+const messages: string[] = [
   'Welcome, stranger!',
   'I break things. I build things. Sometimes they work.',
   "This site? It's more personal than professional — like my dotfiles.",
   'If you found this page, congratulations! You’ve officially wasted more time than most people do online.',
-  'I use Arch, btw',
+  'I use Arch, btw (Fake)',
   'This site looks like a mess? Perfect, you’re in the right place.',
   'Don’t worry, you’re not lost — this is exactly where the internet forgets about you.',
   'If you’re reading this, you probably should be working.',
@@ -27,33 +27,31 @@ const messages = [
   'Ok, you win. I ran out of ideas. You’ve seen every message in this part of the site. Are you happy with that waste of time?',
 ];
 
-function type() {
+export function startTyping(): void {
   const el = document.getElementById('typed');
   if (!el) return;
+
+  el.textContent = '';
 
   let messageIndex = 0;
   let charIndex = 0;
 
-  function _type() {
+  function type(): void {
+    if (!el) return;
+
     if (charIndex < messages[messageIndex].length) {
       el.textContent += messages[messageIndex].charAt(charIndex);
       charIndex++;
-      setTimeout(_type, 50);
+      setTimeout(type, 50);
     } else {
       setTimeout(() => {
         el.textContent = '';
         charIndex = 0;
         messageIndex = (messageIndex + 1) % messages.length;
-        _type();
+        type();
       }, 2000);
     }
   }
 
-  _type();
-}
-
-export function startTyping() {
-  window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(type, 1000);
-  });
+  setTimeout(type, 1000);
 }
