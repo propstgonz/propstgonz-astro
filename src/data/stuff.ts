@@ -1,19 +1,19 @@
 export const stuff = [
   {
-    label: '🖥️ My computers',
-    action: { type: 'link', href: '/computers' },
+    label: '📰 Blog',
+    action: { type: 'link', href: '/blog' },
   },
   {
-    label: '🌌 My vision',
-    action: { type: 'link', href: '/vision' },
+    label: '🔗 My hub',
+    action: { type: 'link', href: '/hub' },
   },
   {
     label: '❓ FAQ',
     action: { type: 'link', href: '/faq' },
   },
   {
-    label: '🔗 My hub',
-    action: { type: 'link', href: '/hub' },
+    label: '🖥️ My computers',
+    action: { type: 'link', href: '/computers' },
   },
   {
     label: '📈 Clicker',
