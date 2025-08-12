@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.github/
+.vscode/
+docs/
+*.config.js
+*.config.mjs
+*.json
+*.md
+.env
+.gitattributes
+*.yaml
+*.yml
