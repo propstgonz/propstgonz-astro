@@ -1,19 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
+import { fetchPosts } from '../lib/api';
+import matter from 'gray-matter';
 
-let allPosts = Object.values(import.meta.glob('./blog/*.md', { eager: true }));
+const { posts, hasError } = await fetchPosts();
 
-allPosts = allPosts.sort(
-  (a: any, b: any) =>
-    new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
-);
+let allPosts: { id: string; url: string; frontmatter: any; }[] = [];
+
+if (!hasError) {
+  for (const post of posts) {
+    // Descargamos el markdown pero solo para leer el frontmatter
+    const mdRes = await fetch(post.url);
+    const mdText = await mdRes.text();
+    const { data: frontmatter } = matter(mdText);
+
+    allPosts.push({
+      id: post.id,
+      url: post.url,
+      frontmatter,
+    });
+  }
+
+  // Ordenar por fecha descendente
+  allPosts = allPosts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+  );
+}
 
 const PAGE_PROPS = {
   title: 'Blog',
   description: 'Cuaderno de bitácora de Alejandro Propst',
   image: '/logbook.png',
 };
+
+export const prerender = true;
 ---
 
 <Layout {...PAGE_PROPS}>
@@ -25,15 +48,20 @@ const PAGE_PROPS = {
       </span>
     </h1>
 
-    <div class="flex flex-col gap-6">
-      {
-        allPosts.map((post: any) => {
+    {hasError ? (
+      <p class="text-red-500 text-center">Error al cargar los posts.</p>
+    ) : (
+      <div class="flex flex-col gap-6">
+        {allPosts.map((post) => {
           const dateObj = new Date(post.frontmatter.date);
-          const hasValidDate = post.frontmatter.date && !isNaN(dateObj.getTime());
+          const hasValidDate =
+            post.frontmatter.date && !isNaN(dateObj.getTime());
 
           return (
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition">
-              <BlogPost url={post.url} title={post.frontmatter.title} />
+            <div
+              class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition"
+            >
+              <BlogPost url={`/posts/${post.id}`} title={post.frontmatter.title} />
               {hasValidDate && (
                 <p class="text-sm text-gray-500 mt-1">
                   {dateObj.toLocaleDateString('es-ES', {
@@ -45,8 +73,8 @@ const PAGE_PROPS = {
               )}
             </div>
           );
-        })
-      }
-    </div>
+        })}
+      </div>
+    )}
   </section>
 </Layout>

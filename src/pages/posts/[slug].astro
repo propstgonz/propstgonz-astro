@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fetchPosts } from '../../lib/api';
+import matter from 'gray-matter';
+import { marked } from 'marked';
+
+const { slug } = Astro.params;
+
+const { posts, hasError } = await fetchPosts();
+
+if (hasError) {
+  throw new Error('Error fetching posts data');
+}
+
+// Encontramos el post con el id igual a slug
+const postMeta = posts.find((p: { id: string | undefined }) => p.id === slug);
+
+if (!postMeta) {
+  throw new Error('Post not found');
+}
+
+// Fetch del markdown desde la URL que da la API
+const mdRes = await fetch(postMeta.url);
+if (!mdRes.ok) {
+  throw new Error('Error fetching markdown content');
+}
+const mdText = await mdRes.text();
+
+// Extraemos frontmatter y contenido con gray-matter
+const { data: frontmatter, content } = matter(mdText);
+
+// Convertimos Markdown a HTML
+const htmlContent = marked(content);
+
+const PAGE_PROPS = {
+  title: frontmatter.title || 'Post',
+  description: frontmatter.description || '',
+  image: frontmatter.image || '',
+};
+
+export const prerender = false;
+---
+
+<Layout {...PAGE_PROPS}>
+  <article class="max-w-3xl mx-auto px-4 py-8 prose dark:prose-invert">
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.date && (
+      <time datetime={frontmatter.date}>
+        {new Date(frontmatter.date).toLocaleDateString('es-ES', {
+         year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </time>
+    )}
+
+    <div set:html={htmlContent} class="mt-6">
+
+    </div>
+  </article>
+</Layout>
