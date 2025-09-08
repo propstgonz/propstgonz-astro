@@ -1,5 +1,9 @@
 export const logs = [
   {
+    date: '2025-09-08',
+    message: 'I forgot about updating the page, lol',
+  },
+  {
     date: '2025-08-03',
     message: 'The website was successfully migrated to Astro',
   },
