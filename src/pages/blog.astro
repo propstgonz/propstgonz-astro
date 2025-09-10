@@ -61,7 +61,7 @@ export const prerender = true;
             <div
               class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition"
             >
-              <BlogPost url={`/posts/${post.id}`} title={post.frontmatter.title} />
+              <BlogPost url={`/posts/${post.url}`} title={post.frontmatter.title} />
               {hasValidDate && (
                 <p class="text-sm text-gray-500 mt-1">
                   {dateObj.toLocaleDateString('es-ES', {
