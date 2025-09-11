@@ -1,12 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BlogPost from '../components/BlogPost.astro';
 import { fetchPosts } from '../lib/api';
 import matter from 'gray-matter';
 
 const { posts, hasError } = await fetchPosts();
 
-let allPosts: { id: string; url: string; frontmatter: any; }[] = [];
+let allPosts: { id: string; url: string; frontmatter: any }[] = [];
 
 if (!hasError) {
   for (const post of posts) {
@@ -24,9 +23,7 @@ if (!hasError) {
 
   // Ordenar por fecha descendente
   allPosts = allPosts.sort(
-    (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime()
+    (a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime(),
   );
 }
 
@@ -48,33 +45,34 @@ export const prerender = true;
       </span>
     </h1>
 
-    {hasError ? (
-      <p class="text-red-500 text-center">Error al cargar los posts.</p>
-    ) : (
-      <div class="flex flex-col gap-6">
-        {allPosts.map((post) => {
-          const dateObj = new Date(post.frontmatter.date);
-          const hasValidDate =
-            post.frontmatter.date && !isNaN(dateObj.getTime());
+    {
+      hasError ? (
+        <p class="text-red-500 text-center">Error al cargar los posts.</p>
+      ) : (
+        <div class="flex flex-col gap-6">
+          {allPosts.map((post) => {
+            const dateObj = new Date(post.frontmatter.pubDate);
+            const hasValidDate = post.frontmatter.pubDate && !isNaN(dateObj.getTime());
 
-          return (
-            <div
-              class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg transition"
-            >
-              <BlogPost url={`/posts/${post.id}`} title={post.frontmatter.title} />
-              {hasValidDate && (
-                <p class="text-sm text-gray-500 mt-1">
-                  {dateObj.toLocaleDateString('es-ES', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </p>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    )}
+            return (
+              <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-5 hover:shadow-lg hover:bg-gray-700 transition-all">
+                <a href={`/posts/${post.id}`}>
+                  <li>{post.frontmatter.title}</li>
+                  {hasValidDate && (
+                    <p class="text-sm text-gray-500 mt-1">
+                      {dateObj.toLocaleDateString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      })}
+                    </p>
+                  )}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      )
+    }
   </section>
 </Layout>
