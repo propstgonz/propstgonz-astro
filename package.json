@@ -3,20 +3,19 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.3.3",
-    "@astrojs/preact": "^4.1.0",
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/node": "^9.4.3",
+    "@astrojs/preact": "^4.1.1",
+    "@astrojs/react": "^4.3.1",
     "@tailwindcss/vite": "^4.1.11",
     "gray-matter": "^4.0.3",
     "marked": "^16.1.2",
     "market": "^1.0.0",
-    "astro": "^5.12.5",
     "preact": "^10.27.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -26,7 +25,7 @@
   },
   "devDependencies": {
     "@types/marked": "^5.0.2",
-    "astro": "^5.12.9",
+    "astro": "^5.13.7",
     "prettier": "^3.6.2"
   }
 }
