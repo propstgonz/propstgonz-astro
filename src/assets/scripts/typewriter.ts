@@ -1,5 +1,4 @@
 const messages: string[] = [
-  'QUE TE JODAN JAVIER TEBAS, ERES UN MIERDAS Y VAS A ACABAR EN LA PUTA CÁRCEL',
   'Welcome, stranger!',
   'I break things. I build things. Sometimes they work.',
   "This site? It's more personal than professional — like my dotfiles.",
