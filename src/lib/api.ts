@@ -1,4 +1,4 @@
-import { POSTS_API_ENDPOINT } from "astro:env/server";
+import { POSTS_API_ENDPOINT } from 'astro:env/server';
 
 type Post = {
   id: string;
