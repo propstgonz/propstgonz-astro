@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BlogPost from '../components/BlogPost.astro';
-import { fetchPosts } from '../lib/api';
+import { fetchPosts } from '../lib/api.ts';
 import matter from 'gray-matter';
 
 const { posts, hasError } = await fetchPosts();
