@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { fetchPosts } from '../../lib/api';
 import matter from 'gray-matter';
@@ -36,7 +35,7 @@ const htmlContent = marked(content);
 const PAGE_PROPS = {
   title: frontmatter.title || 'Post',
   description: frontmatter.description || '',
-  author: frontmatter.author || 'Author',
+  image: frontmatter.image || '',
 };
 
 export const prerender = false;
@@ -45,29 +44,18 @@ export const prerender = false;
 <Layout {...PAGE_PROPS}>
   <article class="max-w-3xl mx-auto px-4 py-8 prose dark:prose-invert">
     <h1>{frontmatter.title}</h1>
-    <p>{frontmatter.author}</p>
-    {
-      frontmatter.pubDate && (
-        <time datetime={frontmatter.pubDate}>
-          {new Date(frontmatter.pubDate).toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </time>
-      )
-    }
-    {
-      frontmatter.image && (
-        <Image
-          src={frontmatter.image.url}
-          alt={frontmatter.image.alt}
-          width={800}
-          height={600}
-          loading="eager"
-        />
-      )
-    }
-    <div set:html={htmlContent} class="mt-6" />
+    {frontmatter.date && (
+      <time datetime={frontmatter.date}>
+        {new Date(frontmatter.date).toLocaleDateString('es-ES', {
+         year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </time>
+    )}
+
+    <div set:html={htmlContent} class="mt-6">
+
+    </div>
   </article>
 </Layout>
