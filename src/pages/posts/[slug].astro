@@ -6,36 +6,56 @@ import { marked } from 'marked';
 
 const { slug } = Astro.params;
 
-const { posts, hasError } = await fetchPosts();
-
-if (hasError) {
-  throw new Error('Error fetching posts data');
+interface Frontmatter {
+  title?: string;
+  description?: string;
+  image?: string | { url?: string };
+  date?: string | null;
 }
 
-// Encontramos el post con el id igual a slug
-const postMeta = posts.find((p: { id: string | undefined }) => p.id === slug);
+let postMeta;
+let frontmatter: Frontmatter = {};
+let htmlContent = '';
+let hasError = false;
 
-if (!postMeta) {
-  throw new Error('Post not found');
+try {
+  // 1️⃣ Fetch de todos los posts
+  const { posts, hasError: fetchError } = await fetchPosts();
+  if (fetchError) throw new Error('Error fetching posts data');
+
+  // 2️⃣ Encontramos el post con el slug correspondiente
+  postMeta = posts.find((p) => p.id === slug);
+  if (!postMeta) throw new Error('Post not found');
+
+  // 3️⃣ Fetch del Markdown
+  const mdRes = await fetch(postMeta.url);
+  if (!mdRes.ok) throw new Error(`Error fetching markdown content: ${mdRes.status}`);
+  const mdText = await mdRes.text();
+
+  // 4️⃣ Extraemos frontmatter y contenido
+  const parsed = matter(mdText);
+  frontmatter = parsed.data || {};
+  const markdownContent = marked(parsed.content || '');
+  htmlContent = typeof markdownContent === 'string' ? markdownContent : String(markdownContent);
+
+} catch (err) {
+  console.error('Error loading post:', err);
+  hasError = true;
+
+  // Opcional: contenido fallback para que no se rompa la web
+  frontmatter = {
+    title: 'Post no disponible',
+    description: '',
+    image: '',
+    date: null,
+  };
+  htmlContent = '<p>Este post no se pudo cargar. Intenta más tarde.</p>';
 }
-
-// Fetch del markdown desde la URL que da la API
-const mdRes = await fetch(postMeta.url);
-if (!mdRes.ok) {
-  throw new Error('Error fetching markdown content');
-}
-const mdText = await mdRes.text();
-
-// Extraemos frontmatter y contenido con gray-matter
-const { data: frontmatter, content } = matter(mdText);
-
-// Convertimos Markdown a HTML
-const htmlContent = marked(content);
-
+// Props de la página
 const PAGE_PROPS = {
   title: frontmatter.title || 'Post',
   description: frontmatter.description || '',
-  image: frontmatter.image || '',
+  image: typeof frontmatter.image === 'object' ? frontmatter.image?.url || '' : frontmatter.image || '',
 };
 
 export const prerender = false;
@@ -47,15 +67,17 @@ export const prerender = false;
     {frontmatter.date && (
       <time datetime={frontmatter.date}>
         {new Date(frontmatter.date).toLocaleDateString('es-ES', {
-         year: 'numeric',
+          year: 'numeric',
           month: 'long',
           day: 'numeric',
         })}
       </time>
     )}
 
-    <div set:html={htmlContent} class="mt-6">
+    <div set:html={htmlContent} class="mt-6"></div>
 
-    </div>
+    {hasError && (
+      <p class="mt-4 text-red-500">Hubo un error cargando este post. Revisa la consola del servidor.</p>
+    )}
   </article>
 </Layout>
