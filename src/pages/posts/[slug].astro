@@ -12,26 +12,31 @@ if (hasError) {
   throw new Error('Error fetching posts data');
 }
 
-// Encontramos el post con el id igual a slug
-const postMeta = posts.find((p: { id: string | undefined }) => p.id === slug);
+// Encontramos el post usando la ID
+const postMeta = posts.find((p: { id: string }) => p.id === slug);
 
 if (!postMeta) {
   throw new Error('Post not found');
 }
 
-// Fetch del markdown desde la URL que da la API
-const mdRes = await fetch(postMeta.url);
-if (!mdRes.ok) {
-  throw new Error('Error fetching markdown content');
+// Fetch seguro del Markdown desde el bucket
+let mdText = '';
+try {
+  const mdRes = await fetch(postMeta.url);
+  if (!mdRes.ok) throw new Error(`Error fetching markdown content: ${mdRes.status}`);
+  mdText = await mdRes.text();
+} catch (err) {
+  console.error(err);
+  throw new Error('Error fetching Markdown content');
 }
-const mdText = await mdRes.text();
 
-// Extraemos frontmatter y contenido con gray-matter
+// Extraemos frontmatter y contenido
 const { data: frontmatter, content } = matter(mdText);
 
 // Convertimos Markdown a HTML
 const htmlContent = marked(content);
 
+// Props para Layout
 const PAGE_PROPS = {
   title: frontmatter.title || 'Post',
   description: frontmatter.description || '',
@@ -44,18 +49,17 @@ export const prerender = false;
 <Layout {...PAGE_PROPS}>
   <article class="max-w-3xl mx-auto px-4 py-8 prose dark:prose-invert">
     <h1>{frontmatter.title}</h1>
-    {frontmatter.date && (
-      <time datetime={frontmatter.date}>
-        {new Date(frontmatter.date).toLocaleDateString('es-ES', {
-         year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-      </time>
-    )}
-
-    <div set:html={htmlContent} class="mt-6">
-
-    </div>
+    {
+      frontmatter.date && (
+        <time datetime={frontmatter.date}>
+          {new Date(frontmatter.date).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+      )
+    }
+    <div set:html={htmlContent} class="mt-6" />
   </article>
 </Layout>
