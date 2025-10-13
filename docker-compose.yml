@@ -3,6 +3,8 @@ services:
     container_name: propstgonz-web
     build: .
     restart: unless-stopped
+    env_file:
+      - .env
     networks:
       - traefik-net
     labels:
