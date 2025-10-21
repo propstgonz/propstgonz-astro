@@ -1,5 +1,9 @@
 export const logs = [
   {
+    date: '2025-10-21',
+    message: 'Maybe someday I will update this again (Sure not today)',
+  },  
+  {
     date: '2025-09-08',
     message: 'I forgot about updating the page, lol',
   },

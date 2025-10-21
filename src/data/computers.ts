@@ -87,7 +87,7 @@ export const computers = [
 ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Terminal: /dev/pts/0
 ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: Intel Xeon E5-2660 v2 (20) @ 3.000GHz
 +sssshhhyNMMNyssssssssssssyNMMMysssssss+   GPU: NVIDIA GeForce GTX 750
-.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Memory: 1769MiB / 32005MiB
+.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Memory: 19232MiB / 32005MiB
  /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/
   +sssssssssdmydMMMMMMMMddddyssssssss+
    /ssssssssssshdmNNNNmyNMMMMhssssss/
@@ -105,7 +105,7 @@ ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: Intel Xeon E5-2660 v2 (20) @ 3.0
       Terminal: '/dev/pts/0',
       CPU: 'Xeon E5-2660 v2 (20) @ 3GHz',
       GPU: 'GTX 750',
-      RAM: '1.7 / 32 GiB',
+      RAM: '19.2 / 32 GiB',
       Packages: '1512 + 4 snap',
     },
   },
