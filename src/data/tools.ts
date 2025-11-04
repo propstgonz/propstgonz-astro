@@ -10,6 +10,9 @@ import apacheLogo from '../assets/img/logo/apache-logo.png';
 import dnsLogo from '../assets/img/logo/dns-icon.png';
 import dockerLogo from '../assets/img/logo/docker-logo.png';
 import tuxLogo from '../assets/img/logo/Tux-logo.png';
+import windowsServer from '../assets/img/logo/windows-server-icon.png'
+import powershell from '../assets/img/logo/powershell.png'
+import sql from '../assets/img/logo/sql.png'
 
 export const tools = [
   { name: 'HTML', icon: htmlLogo },
@@ -24,4 +27,7 @@ export const tools = [
   { name: 'DNS records', icon: dnsLogo },
   { name: 'Docker', icon: dockerLogo },
   { name: 'GNU/Linux bash', icon: tuxLogo },
+  { name: 'Windows Server', icon: windowsServer},
+  { name: 'Powershell', icon: powershell},
+  { name: 'General SQL', icon: sql}
 ];
