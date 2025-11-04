@@ -9,9 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.3",
-    "@astrojs/preact": "^4.1.1",
-    "@astrojs/react": "^4.3.1",
+    "@astrojs/node": "^9.5.0",
+    "@astrojs/preact": "^4.1.2",
+    "@astrojs/react": "^4.4.1",
     "@tailwindcss/vite": "^4.1.11",
     "gray-matter": "^4.0.3",
     "marked": "^16.1.2",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/marked": "^5.0.2",
-    "astro": "^5.14.7",
+    "astro": "^5.15.3",
     "prettier": "^3.6.2"
   }
 }
