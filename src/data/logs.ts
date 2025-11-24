@@ -1,5 +1,9 @@
 export const logs = [
   {
+    date: '2025-11-24',
+    message: 'Added a form that sends me an email and started working on the hub page.',
+  },
+  {
     date: '2025-11-04',
     message: '5:49 AM, cannot sleep, creative cunt time!',
   },  
@@ -17,14 +21,14 @@ export const logs = [
   },
   {
     date: '2025-07-28',
-    message: 'updated this page and have started preparing to migrate it to Astro',
+    message: 'Updated this page and have started preparing to migrate it to Astro',
   },
   {
     date: '2025-07-16',
-    message: 'went back to Ubuntu for compatibility with some government programs',
+    message: 'Went back to Ubuntu for compatibility with some government programs',
   },
   {
     date: '2025-07-02',
-    message: 'fixed my mailserver',
+    message: 'Fixed my mailserver',
   },
 ];
