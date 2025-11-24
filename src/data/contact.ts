@@ -14,4 +14,9 @@ export const contact = [
     href: 'mailto:propstgonz@baronette.es',
     external: false,
   },
+    {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/propstgonz/',
+    external: true,
+  },
 ];
