@@ -1,11 +1,11 @@
 import type { APIContext } from "astro";
-const nodemailer = require("nodemailer");
+import nodemailer from "nodemailer";
 
 // Your existing transporter
 const transporter = nodemailer.createTransport({
   host: "mail.baronette.es",
   port: 587,
-  secure: true,
+  secure: false,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -21,8 +21,8 @@ export async function POST({ request }: APIContext) {
     // Send email exactly as in Nodemailer documentation
     const info = await transporter.sendMail({
       from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: "recipient@example.com", // replace with actual recipient
-      subject: "New message from contact form",
+      to: "propstgonz@baronette.es",
+      subject: "Nuevo mensaje desde el portafolio",
       text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
       html: `<p><strong>Name:</strong> ${name}</p>
              <p><strong>Email:</strong> ${email}</p>
