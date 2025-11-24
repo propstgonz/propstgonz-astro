@@ -5,7 +5,8 @@ import Tools from '../components/Tools.astro';
 import Logs from '../components/Logs.astro';
 import Philosophy from '../components/Philosophy.astro';
 import Stuff from '../components/Stuff.astro';
-import Contact from '../components/Contact.astro';
+import Socials from '../components/Contact.astro';
+import ContactForm from '../components/ContForm.astro'
 
 const PAGE_PROPS = {
   title: 'Home page',
@@ -30,7 +31,10 @@ const PAGE_PROPS = {
     {/* Tools */}
     <Tools />
 
-    {/* Contact */}
-    <Contact />
+    {/* Contact form */}
+    <ContactForm />
+
+    {/* Socials*/}
+    <Socials />
   </main>
 </Layout>
