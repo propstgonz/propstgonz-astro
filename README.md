@@ -13,3 +13,4 @@
 9. Remove main page stuff section.
 10. Rework the page to look more a about me page than a merely portfolio.
 11. ~~Add a contact section (store it in a database and send the messages to my email).~~
+12. Fix the pfp loading time
