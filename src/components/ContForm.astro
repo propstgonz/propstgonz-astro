@@ -1,0 +1,51 @@
+<form
+  id="contact-form"
+  class="bg-[#0f1117] p-6 rounded-2xl max-w-md mx-auto space-y-4 border border-orange-500"
+>
+  <input
+    name="name"
+    type="text"
+    placeholder="Name"
+    required
+    class="w-full p-3 rounded-lg border border-orange-500 bg-[#0f1117] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+  />
+  <input
+    name="email"
+    type="email"
+    placeholder="Email"
+    required
+    class="w-full p-3 rounded-lg border border-orange-500 bg-[#0f1117] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+  />
+  <textarea
+    name="message"
+    placeholder="Message"
+    required
+    class="w-full p-3 rounded-lg border border-orange-500 bg-[#0f1117] text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 h-32 resize-none"
+  ></textarea>
+  <button
+    type="submit"
+    class="w-full bg-orange-500 text-[#0f1117] font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors"
+  >
+    Send
+  </button>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  if (!form) throw new Error('Form not found');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const target = e.currentTarget as HTMLFormElement;
+
+    const data = Object.fromEntries(new FormData(target));
+    const res = await fetch('/api/sendMail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    alert(result.ok ? 'Message sent' : 'Error sending message');
+  });
+</script>
