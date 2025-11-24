@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import InProgressComp from "../components/InProgress.astro";
+
+const PAGE_PROPS = {
+  title: "Projects",
+  description: "Where I share my projects.",
+  image: "/metaimage.png",
+};
+---
+
+<Layout {...PAGE_PROPS}>
+  <InProgressComp />
+</Layout>
