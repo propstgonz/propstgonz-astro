@@ -50,6 +50,12 @@
     });
 
     const result = await res.json();
-    alert(result.ok ? 'Message sent' : 'Error sending message');
+
+    if (result.ok) {
+      alert('Message sent');
+      form.reset();
+    } else {
+      alert('Error sending message');
+    }
   });
 </script>
