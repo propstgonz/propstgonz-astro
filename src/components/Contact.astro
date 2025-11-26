@@ -1,31 +1,27 @@
 ---
-import { contact } from "../data/contact";
+import { contact } from '../data/contact';
 ---
 
 <section>
   <h2 class="text-lg font-semibold text-[#D99058] mb-3">
     [ socials ]
   </h2>
-  <div class="flex space-x-4 text-sm">
+
+  <div class="flex space-x-4">
     {
-      contact.map((social) =>
-        social.external ? (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:underline text-white"
-          >
-            {social.label}
-          </a>
-        ) : (
-          <a href={social.href} class="hover:underline text-white">
-            {social.label}
-          </a>
-        )
-      )
+      contact.map((social) => (
+        <a
+          href={social.href}
+          target={social.external ? '_blank' : undefined}
+          rel={social.external ? 'noopener noreferrer' : undefined}
+        >
+          <img src={social.icon} alt={social.label} class="w-8 h-8" />
+        </a>
+      ))
     }
   </div>
+  <br>
+  
   <p class="text-xs text-gray-500 mt-3">
     Also valid:
     <code>curl propstgonz.dev/contact (fake, I'll not buy another domain)</code>

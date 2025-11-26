@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="800px"
+   height="800px"
+   viewBox="0 -2.5 20 20"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="email.svg"
+   inkscape:export-filename="email.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.45875"
+     inkscape:cx="384.23308"
+     inkscape:cy="465.80977"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <title
+     id="title1">email [#1573]</title>
+  <desc
+     id="desc1">Created with Sketch.</desc>
+  <defs
+     id="defs1" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="Dribbble-Light-Preview"
+       transform="translate(-300.000000, -922.000000)"
+       fill="#000000">
+      <g
+         id="icons"
+         transform="translate(56.000000, 160.000000)">
+        <path
+           d="M262,764.291 L254,771.318 L246,764.281 L246,764 L262,764 L262,764.291 Z M246,775 L246,766.945 L254,773.98 L262,766.953 L262,775 L246,775 Z M244,777 L264,777 L264,762 L244,762 L244,777 Z"
+           id="email-[#1573]"
+           style="fill:#d4aa00" />
+      </g>
+    </g>
+  </g>
+  <path
+     style="fill:#d4aa00;stroke-width:0.685518"
+     d="M 0,400 V 100.42845 H 400 800 V 400 699.57155 H 400 0 Z m 720.47986,58.89746 c 0,-95.04681 -0.25275,-161.06022 -0.61614,-160.92545 -0.33885,0.12568 -72.35738,63.25023 -160.04117,140.27679 -87.68379,77.02655 -159.59997,140.04374 -159.81373,140.03821 -0.21375,-0.006 -72.13666,-63.10439 -159.82869,-140.21966 C 152.4881,360.95207 80.46559,297.85775 80.130105,297.85775 c -0.354551,0 -0.609968,67.45782 -0.609968,161.09683 V 620.05141 H 400 720.47986 Z M 561.09683,331.77985 720.1371,192.1109 l 0.19709,-6.08116 0.19716,-6.08115 H 399.99903 79.466756 l 0.198073,5.8664 0.198067,5.86639 160.064964,140.78894 c 137.54319,120.97938 160.21016,140.66157 161.09683,139.88371 0.56753,-0.49788 72.59999,-63.75626 160.07214,-140.57418 z"
+     id="path1"
+     transform="matrix(0.025,0,0,0.025,0,-2.5)" />
+  <path
+     style="fill:#aa8800;stroke-width:0.685518"
+     d="M 0,400 V 100.42845 H 400 800 V 400 699.57155 H 400 0 Z m 720.47986,59.3378 c 0,-88.39248 -0.23136,-160.84492 -0.51414,-161.00541 -0.28277,-0.16048 -12.2365,10.02116 -26.56383,22.62587 -14.32734,12.60471 -31.91089,28.0746 -39.07455,34.37755 -7.16367,6.30294 -30.45416,26.7599 -51.75665,45.45989 -21.30248,18.70001 -61.86803,54.32324 -90.14567,79.16276 -28.27763,24.83952 -65.14139,57.21202 -81.91945,71.93891 L 400,578.67352 368.76773,551.2048 C 110.83938,324.35732 80.647781,297.86634 80.034276,297.86167 79.7515,297.85952 79.520137,370.35133 79.520137,458.95458 V 620.05141 H 400 720.47986 Z M 561.78235,331.07553 720.1371,192.03639 l 0.19709,-6.0439 0.19716,-6.0439 H 400.02573 79.520137 l 3.84e-4,5.65552 3.77e-4,5.65553 4.284113,3.80584 c 2.356257,2.09321 33.744259,29.71169 69.751119,61.3744 60.72511,53.39878 138.66125,121.94099 171.03684,150.42115 50.48259,44.40854 67.1011,58.88733 72.24802,62.94578 3.66498,2.8899 3.70838,2.9035 5.14139,1.61118 0.79487,-0.71683 72.70485,-63.87093 159.79997,-140.34246 z"
+     id="path2"
+     transform="matrix(0.025,0,0,0.025,0,-2.5)" />
+</svg>
