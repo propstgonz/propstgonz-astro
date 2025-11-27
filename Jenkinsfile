@@ -7,9 +7,14 @@ pipeline {
 
   stages {
 
-    stage('Checkout') {
+    stage('Update production code') {
       steps {
-        git url: 'https://github.com/propstgonz/propstgonz-portfolio.git', branch: 'main'
+        sh """
+          cd ${PROJECT_DIR}
+          echo "Updating code in production directory..."
+          git fetch --all
+          git reset --hard origin/main
+        """
       }
     }
 
