@@ -9,15 +9,17 @@ pipeline {
 
     stage('Update production code') {
       steps {
-        sh """
-          cd ${PROJECT_DIR}
-          echo "Marking project directory as safe for Git..."
-          git config --global --add safe.directory ${PROJECT_DIR}
+        sshagent(['my_git_ssh_key']) {
+          sh """
+            cd ${PROJECT_DIR}
+            echo "Marking project directory as safe for Git..."
+            git config --global --add safe.directory ${PROJECT_DIR}
 
-          echo "Updating code in production directory..."
-          git fetch --all
-          git reset --hard origin/main
-        """
+            echo "Updating code in production directory..."
+            git fetch --all
+            git reset --hard origin/main
+          """
+        }
       }
     }
 
