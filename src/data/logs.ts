@@ -1,7 +1,7 @@
 export const logs = [
   {
     date: '2025-11-27',
-    message: 'Updated the website so that it automatically rebuilds itself after being deployed with Jenkins.',
+    message: 'Updated the website so that it automatically rebuilds itself after being deployed with Jenkins (Or so I tought).',
   },
   {
     date: '2025-11-24',
