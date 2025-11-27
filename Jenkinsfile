@@ -2,8 +2,7 @@ pipeline {
   agent any
 
   environment {
-    DEPLOY_DIR = "/home/docker/webservice/propstgonz-web/propstgonz-astro"
-    ENV_SOURCE = "/home/docker/webservice/propstgonz-web/propstgonz-astro/.env"
+    PROJECT_DIR = "/home/docker/webservice/propstgonz-web/propstgonz-astro"
   }
 
   stages {
@@ -14,19 +13,11 @@ pipeline {
       }
     }
 
-    stage('Copy ENV') {
-      steps {
-        sh '''
-          echo "Copying .env to workspace"
-          cp "${ENV_SOURCE}" ./.env || echo "Warning: .env not found"
-        '''
-      }
-    }
-
     stage('Install Node & Dependencies') {
       steps {
-        sh '''
-          # Check Node, install if not present
+        sh """
+          cd ${PROJECT_DIR}
+
           if ! command -v node >/dev/null 2>&1; then
             echo "Node not found. Installing Node 20..."
             curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
@@ -34,42 +25,25 @@ pipeline {
           fi
 
           npm install
-        '''
+        """
       }
     }
 
     stage('Build Astro') {
       steps {
-        sh '''
+        sh """
+          cd ${PROJECT_DIR}
           npm run build
-        '''
-      }
-    }
-
-    stage('Deploy to production directory') {
-      steps {
-        sh '''
-          echo "Deploying build to ${DEPLOY_DIR}"
-
-          sudo mkdir -p "${DEPLOY_DIR}"
-
-          # Remove everything except docker-compose.yml
-          sudo find "${DEPLOY_DIR}" -mindepth 1 ! -name "docker-compose.yml" -exec rm -rf {} +
-
-          # Copy Astro build
-          sudo cp -r dist/* "${DEPLOY_DIR}/"
-        '''
+        """
       }
     }
 
     stage('Recreate web container') {
       steps {
-        sh '''
-          echo "Recreating container in ${DEPLOY_DIR}"
-
-          cd "${DEPLOY_DIR}"
+        sh """
+          cd ${PROJECT_DIR}
           sudo docker compose up -d --force-recreate
-        '''
+        """
       }
     }
   }
