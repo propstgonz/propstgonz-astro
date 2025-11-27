@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import InProgressComp from '../components/InProgress.astro';
+import InProgress from '../components/InProgress.astro';
 
 const PAGE_PROPS = {
   title: 'Clicker',
@@ -9,42 +11,5 @@ const PAGE_PROPS = {
 ---
 
 <Layout {...PAGE_PROPS}>
-  <main class="flex items-center justify-center min-h-screen">
-    <div class="flex flex-col items-center gap-6">
-      <h1 class="text-3xl text-[#D99058]">[ global clicker experiment ]</h1>
-
-      <div id="click-count" class="text-[6rem] font-extrabold text-orange-400 leading-none">0</div>
-
-      <button
-        id="click-button"
-        class="bg-gray-700 text-white px-8 py-4 rounded-xl text-lg hover:bg-gray-600 transition-all shadow-md"
-      >
-        Click me
-      </button>
-    </div>
-  </main>
-
-  <script type="module" lang="ts">
-    const countEl = document.getElementById('click-count');
-    const buttonEl = document.getElementById('click-button');
-
-    if (!countEl || !buttonEl) {
-      throw new Error('No se encontraron los elementos del contador o el botón');
-    }
-
-    async function loadCount() {
-      const res = await fetch('/api/click');
-      const data = await res.json();
-      countEl.textContent = data.count;
-    }
-
-    async function incrementCount() {
-      const res = await fetch('/api/click', { method: 'POST' });
-      const data = await res.json();
-      countEl.textContent = data.count;
-    }
-
-    buttonEl.addEventListener('click', incrementCount);
-    loadCount();
-  </script>
+  <InProgressComp />
 </Layout>
