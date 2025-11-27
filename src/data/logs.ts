@@ -1,5 +1,9 @@
 export const logs = [
   {
+    date: '2025-11-27',
+    message: 'Updated the website so that it automatically rebuilds itself after being deployed with Jenkins.',
+  },
+  {
     date: '2025-11-24',
     message: 'Added a form that sends me an email and started working on the hub page.',
   },
