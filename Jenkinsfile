@@ -3,6 +3,7 @@ pipeline {
 
   environment {
     DEPLOY_DIR = "/home/docker/webservice/propstgonz-web/propstgonz-astro"
+    ENV_SOURCE = "/home/docker/webservice/propstgonz-web/propstgonz-astro/.env"
   }
 
   stages {
@@ -10,6 +11,15 @@ pipeline {
     stage('Checkout') {
       steps {
         git url: 'https://github.com/propstgonz/propstgonz-portfolio.git', branch: 'main'
+      }
+    }
+
+    stage('Copy ENV') {
+      steps {
+        sh '''
+          echo "Copying .env to workspace"
+          cp "${ENV_SOURCE}" ./.env || echo "Warning: .env not found"
+        '''
       }
     }
 
