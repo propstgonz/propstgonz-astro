@@ -1,8 +1,3 @@
----
-import { Image } from "astro:assets";
-import pfp1 from "/public/propstfake.gif";
----
-
 <header class="mb-12">
   <div class="max-w-2xl mx-auto">
     <div
@@ -11,12 +6,11 @@ import pfp1 from "/public/propstfake.gif";
       <div
         class="rounded-full border-4 border-orange-300 overflow-hidden w-24 h-24 shrink-0 self-start"
       >
-        <Image
+        <img
           id="avatar"
-          src={pfp1}
+          src="/public/propstfake.gif"
           alt="my fake pfp"
           class="w-full h-full object-cover"
-          loading="eager"
         />
       </div>
       <div class="flex-1 min-w-0 flex flex-col justify-start">
@@ -35,7 +29,7 @@ import pfp1 from "/public/propstfake.gif";
   </div>
 
   <script>
-    import { startTyping } from "../assets/scripts/typewriter.js";
+    import { startTyping } from "../assets/scripts/typewriter.ts";
     startTyping();
   </script>
 </header>
