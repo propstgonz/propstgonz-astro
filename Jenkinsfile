@@ -12,7 +12,6 @@ pipeline {
     stage('Recreate web container') {
       steps {
         sh """
-          cd ${PROJECT_DIR}
           sudo docker compose up -d --build
         """
       }
