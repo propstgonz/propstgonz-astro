@@ -2,49 +2,14 @@ pipeline {
   agent any
 
   environment {
-    PROJECT_DIR = "/home/docker/webservice/propstgonz-web/propstgonz-astro"
+    PROJECT_DIR = '/home/docker/webservice/propstgonz-web/propstgonz-astro'
   }
 
   stages {
-
-    stage('Update production code') {
+    stage('Checkout') {
       steps {
-        sshagent(['my_git_ssh_key']) {
-          sh """
-            cd ${PROJECT_DIR}
-            echo "Marking project directory as safe for Git..."
-            git config --global --add safe.directory ${PROJECT_DIR}
-
-            echo "Updating code in production directory..."
-            git fetch --all
-            git reset --hard origin/main
-          """
-        }
-      }
-    }
-
-    stage('Install Node & Dependencies') {
-      steps {
-        sh """
-          cd ${PROJECT_DIR}
-
-          if ! command -v node >/dev/null 2>&1; then
-            echo "Node not found. Installing Node 20..."
-            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-          fi
-
-          npm install
-        """
-      }
-    }
-
-    stage('Build Astro') {
-      steps {
-        sh """
-          cd ${PROJECT_DIR}
-          npm run build
-        """
+        echo 'Checking out code...'
+        checkout scm
       }
     }
 
@@ -52,18 +17,31 @@ pipeline {
       steps {
         sh """
           cd ${PROJECT_DIR}
-          sudo docker compose up -d --force-recreate
+          sudo docker compose up -d --force-recreate --build
         """
       }
     }
+
+      stage('Verify Deployment') {
+      steps {
+        script {
+          echo 'Verifying deployment...'
+          sh '''
+            sleep 5
+            docker-compose ps
+            docker-compose logs --tail=50
+          '''
+        }
+      }
+      }
   }
 
   post {
     success {
-      echo "Deployment completed successfully."
+      echo 'Deployment completed successfully.'
     }
     failure {
-      echo "Deployment failed."
+      echo 'Deployment failed.'
     }
   }
 }
