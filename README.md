@@ -2,7 +2,7 @@
 
 # THINGS TO DO
 
-1. Refactor the ts code (Works fine, but I don't like how it looks rn).
+1. ~~Refactor the ts code (Works fine, but I don't like how it looks rn).~~
 2. Move counter.json to a proper database.
 3. Fix the fucking clicker thing (I'm going crazy with that).
 4. Rework the main page because the hub should’ve been finished (Should be?).
