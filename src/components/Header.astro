@@ -1,3 +1,7 @@
+---
+import Image from "astro/components/Image.astro"
+import fakepfp from "/public/propstfake.gif"
+---
 <header class="mb-12">
   <div class="max-w-2xl mx-auto">
     <div
@@ -6,9 +10,9 @@
       <div
         class="rounded-full border-4 border-orange-300 overflow-hidden w-24 h-24 shrink-0 self-start"
       >
-        <img
+        <Image
           id="avatar"
-          src="/public/propstfake.gif"
+          src={fakepfp}
           alt="my fake pfp"
           class="w-full h-full object-cover"
         />
