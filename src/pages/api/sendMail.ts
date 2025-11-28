@@ -31,7 +31,7 @@ export async function POST({ request }: APIContext) {
       const buffer = Buffer.from(await file.arrayBuffer());
       if (buffer.length > 25 * 1024 * 1024) {
         return new Response(
-          JSON.stringify({ ok: false, error: "El archivo supera los 25MB" }),
+          JSON.stringify({ ok: false, error: "Your file exceeds 25MB" }),
           { status: 400 }
         );
       }
