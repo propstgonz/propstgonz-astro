@@ -1,8 +1,7 @@
 ---
 import Image from "astro/components/Image.astro"
-import fakepfp from "/public/propstfake.webp"
+import fakepfp from "/public/propstplaceholder.png"
 ---
-
 <header class="mb-12">
   <div class="max-w-2xl mx-auto">
     <div
@@ -17,8 +16,17 @@ import fakepfp from "/public/propstfake.webp"
           alt="my fake pfp"
           class="w-full h-full object-cover"
         />
+        <video
+          id="avatar-video"
+          class="w-full h-full object-cover hidden"
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source src="/propstfake.webm" type="video/webm">
+        </video>
       </div>
-
       <div class="flex-1 min-w-0 flex flex-col justify-start">
         <div>
           <h1 class="text-xl font-bold text-[#D99058]">propstgonz</h1>
@@ -26,21 +34,31 @@ import fakepfp from "/public/propstfake.webp"
             ~/about — probably overthinking something right now
           </p>
         </div>
-
         <span
           id="typed"
-          class="text-cyan-300 block whitespace-normal break-words mt-1
-                 leading-snug
-                 min-h-[2.4rem]     /* más espacio en móviles */
-                 sm:min-h-[1.6rem]  /* tamaño reducido en pantallas grandes */
-                 after:content-['|'] after:animate-blink after:ml-[2px]"
-        ></span>
+          class="
+            text-cyan-300 block whitespace-normal break-words mt-1
+            leading-snug
+            min-h-[2.4rem]
+            sm:min-h-[1.6rem]
+            after:content-['|'] after:animate-blink after:ml-[2px]"
+          >
+        </span>
       </div>
     </div>
   </div>
-
   <script>
     import { startTyping } from "../assets/scripts/typewriter.ts";
     startTyping();
+
+    setTimeout(() => {
+      const avatarImg = document.getElementById('avatar');
+      const avatarVideo = document.getElementById('avatar-video');
+      
+      if (avatarImg && avatarVideo) {
+        avatarImg.classList.add('hidden');
+        avatarVideo.classList.remove('hidden');
+      }
+    }, 3000); // ms = 3s
   </script>
 </header>
