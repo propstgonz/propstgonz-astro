@@ -1,10 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    PROJECT_DIR = '/home/docker/webservice/propstgonz-web/propstgonz-astro'
-  }
-
   stages {
     stage('Checkout') {
       steps {
