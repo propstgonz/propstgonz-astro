@@ -9,11 +9,20 @@ pipeline {
       }
     }
 
+    stage('Stop Previous Deployment') {
+      steps {
+        script {
+          echo 'Stopping previous deployment if exists...'
+          sh 'docker-compose down || true'
+        }
+      }
+    }
+
     stage('Recreate web container') {
       steps {
-        sh """
+        sh '''
           sudo docker compose up -d --build
-        """
+        '''
       }
     }
 
