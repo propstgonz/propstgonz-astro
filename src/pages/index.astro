@@ -6,7 +6,8 @@ import Logs from '../components/Logs.astro';
 import Philosophy from '../components/Philosophy.astro';
 import Stuff from '../components/Stuff.astro';
 import SocialsComp from '../components/Socials.astro';
-import ContactForm from '../components/ContForm.astro'
+import ContactForm from '../components/ContForm.astro';
+import AboutMe from '../components/AboutMe.astro';
 
 const PAGE_PROPS = {
   title: 'Home page',
@@ -22,6 +23,7 @@ const PAGE_PROPS = {
 
   {/* The rest of the content on the page */}
   <main class="max-w-2xl mx-auto space-y-10">
+    <AboutMe />
     <Stuff />
     <Philosophy />
     <Logs />
