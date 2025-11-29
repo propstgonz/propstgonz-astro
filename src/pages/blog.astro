@@ -25,8 +25,8 @@ if (!hasError) {
   // Ordenar por fecha descendente
   allPosts = allPosts.sort(
     (a, b) =>
-      new Date(b.frontmatter.date).getTime() -
-      new Date(a.frontmatter.date).getTime()
+      new Date(b.frontmatter.pubDate).getTime() -
+      new Date(a.frontmatter.pubDate).getTime()
   );
 }
 
