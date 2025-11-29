@@ -17,3 +17,5 @@
 13. ~~ARREGLAR QUE CUANDO SE ENVÍE ALGO POR EL PUTO FORMULARIO SE BORRE (EN ESPAÑOL, SÍ, ME CAGO EN LOS 200 MENSAJES CON POLLAS ASCII)~~
 14. ~~Let the contact form email thing send archives.~~
 15. Map the about me component
+16. Fix the posts thing
+17. Make posts sorted newest-first and paginate when there are 5 posts.
