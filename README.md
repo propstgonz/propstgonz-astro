@@ -11,7 +11,7 @@
 7. Maybe update the FAQ.
 8. Update the computer section.
 9. ~~Remove main page stuff section.~~
-10. Rework the page to look more a about me page than a merely portfolio.
+10. ~~Rework the page to look more a about me page than a merely portfolio.~~
 11. ~~Add a contact section (store it in a database and send the messages to my email).~~
 12. ~~Fix the pfp loading time.~~
 13. ~~ARREGLAR QUE CUANDO SE ENVÍE ALGO POR EL PUTO FORMULARIO SE BORRE (EN ESPAÑOL, SÍ, ME CAGO EN LOS 200 MENSAJES CON POLLAS ASCII)~~
