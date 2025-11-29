@@ -7,14 +7,12 @@ import { marked } from 'marked';
 const { slug } = Astro.params;
 
 const { posts, hasError } = await fetchPosts();
-
 if (hasError) {
   throw new Error('Error fetching posts data');
 }
 
 // Encontramos el post con el id igual a slug
 const postMeta = posts.find((p: { id: string | undefined }) => p.id === slug);
-
 if (!postMeta) {
   throw new Error('Post not found');
 }
@@ -32,30 +30,54 @@ const { data: frontmatter, content } = matter(mdText);
 // Convertimos Markdown a HTML
 const htmlContent = marked(content);
 
+// Preparar props para Layout
 const PAGE_PROPS = {
   title: frontmatter.title || 'Post',
   description: frontmatter.description || '',
-  image: frontmatter.image || '',
+  image: frontmatter.image?.url || '',
+  imageAlt: frontmatter.image?.alt || '',
 };
 
 export const prerender = false;
 ---
 
 <Layout {...PAGE_PROPS}>
-  <article class="max-w-3xl mx-auto px-4 py-8 prose dark:prose-invert">
-    <h1>{frontmatter.title}</h1>
-    {frontmatter.date && (
-      <time datetime={frontmatter.date}>
-        {new Date(frontmatter.date).toLocaleDateString('es-ES', {
-         year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-      </time>
+  <article class="max-w-3xl mx-auto px-4 py-12">
+    
+    <!-- Título grande y centrado -->
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-4">
+      {frontmatter.title}
+    </h1>
+
+    <!-- Fecha y autor en pequeño, centrado -->
+    <div class="text-center text-gray-500 dark:text-gray-400 text-sm mb-6 space-x-2">
+      {frontmatter.pubDate && (
+        <time datetime={frontmatter.pubDate}>
+          {new Date(frontmatter.pubDate).toLocaleDateString('es-ES', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </time>
+      )}
+      {frontmatter.author && <span>• Autor: {frontmatter.author}</span>}
+    </div>
+
+    <!-- Imagen destacada centrada -->
+    {frontmatter.image?.url && (
+      <div class="flex justify-center my-6">
+        <img 
+          src={frontmatter.image.url} 
+          alt={frontmatter.image.alt || frontmatter.title} 
+          class="rounded-lg shadow-md max-h-96 object-cover"
+        />
+      </div>
     )}
 
-    <div set:html={htmlContent} class="mt-6">
-
-    </div>
+    <!-- Contenido Markdown con estilo -->
+    <div 
+      set:html={htmlContent} 
+      class="prose prose-lg dark:prose-invert mx-auto mt-6"
+    ></div>
   </article>
 </Layout>
