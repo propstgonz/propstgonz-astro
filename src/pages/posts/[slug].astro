@@ -27,8 +27,8 @@ const mdText = await mdRes.text();
 // Extraemos frontmatter y contenido con gray-matter
 const { data: frontmatter, content } = matter(mdText);
 
-// Convertimos Markdown a HTML
-const htmlContent = marked(content);
+// Convertimos Markdown a HTML respetando saltos de línea simples
+const htmlContent = marked(content, { breaks: true });
 
 // Preparar props para Layout
 const PAGE_PROPS = {
