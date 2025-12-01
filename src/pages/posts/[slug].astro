@@ -27,8 +27,12 @@ const mdText = await mdRes.text();
 // Extraemos frontmatter y contenido con gray-matter
 const { data: frontmatter, content } = matter(mdText);
 
-// Convertimos Markdown a HTML respetando saltos de línea simples
-const htmlContent = marked(content, { breaks: true });
+// Evita que el Markdown corte líneas en frases
+// convierte los saltos de línea simples en espacio
+const normalizedContent = content.replace(/(?<!\n)\n(?!\n)/g, ' ');
+
+// Convertimos Markdown a HTML
+const htmlContent = marked(normalizedContent, { breaks: true });
 
 // Preparar props para Layout
 const PAGE_PROPS = {
@@ -42,15 +46,13 @@ export const prerender = false;
 ---
 
 <Layout {...PAGE_PROPS}>
-  <article class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 py-12">
-    
-    <!-- Título grande y centrado -->
-    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-4">
+<article class="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-2xl">
+
+    <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-6 leading-tight">
       {frontmatter.title}
     </h1>
 
-    <!-- Fecha y autor en pequeño, centrado -->
-    <div class="text-center text-gray-500 dark:text-gray-400 text-sm mb-6 space-x-2">
+    <div class="text-center text-gray-500 dark:text-gray-400 text-sm mb-8 space-x-2">
       {frontmatter.pubDate && (
         <time datetime={frontmatter.pubDate}>
           {new Date(frontmatter.pubDate).toLocaleDateString('es-ES', {
@@ -60,24 +62,25 @@ export const prerender = false;
           })}
         </time>
       )}
-      {frontmatter.author && <span>• Autor: {frontmatter.author}</span>}
+      {frontmatter.author && <span>• {frontmatter.author}</span>}
     </div>
 
-    <!-- Imagen destacada centrada -->
     {frontmatter.image?.url && (
-      <div class="flex justify-center my-6">
+      <div class="flex justify-center my-8">
         <img 
           src={frontmatter.image.url} 
           alt={frontmatter.image.alt || frontmatter.title} 
-          class="rounded-lg shadow-md w-full max-w-4xl object-cover"
+          class="rounded-xl shadow-lg w-full max-w-4xl object-cover"
         />
       </div>
     )}
 
-    <!-- Contenido Markdown con estilo: permitimos que el prose ocupe todo el ancho del contenedor -->
     <div 
-      set:html={htmlContent} 
-      class="prose prose-lg dark:prose-invert mx-auto mt-2 max-w-none"
+      set:html={htmlContent}
+      class="prose prose-lg dark:prose-invert mx-auto max-w-none mt-10
+             prose-headings:font-bold prose-headings:scroll-mt-20
+             prose-img:rounded-lg prose-img:shadow-md
+             prose-a:text-blue-600 dark:prose-a:text-blue-400"
     ></div>
   </article>
 </Layout>
