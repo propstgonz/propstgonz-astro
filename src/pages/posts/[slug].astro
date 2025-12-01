@@ -42,7 +42,7 @@ export const prerender = false;
 ---
 
 <Layout {...PAGE_PROPS}>
-  <article class="max-w-3xl mx-auto px-4 py-12">
+  <article class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-12 py-12">
     
     <!-- Título grande y centrado -->
     <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-4">
@@ -69,15 +69,15 @@ export const prerender = false;
         <img 
           src={frontmatter.image.url} 
           alt={frontmatter.image.alt || frontmatter.title} 
-          class="rounded-lg shadow-md max-h-96 object-cover"
+          class="rounded-lg shadow-md w-full max-w-4xl object-cover"
         />
       </div>
     )}
 
-    <!-- Contenido Markdown con estilo -->
+    <!-- Contenido Markdown con estilo: permitimos que el prose ocupe todo el ancho del contenedor -->
     <div 
       set:html={htmlContent} 
-      class="prose prose-lg dark:prose-invert mx-auto mt-6"
+      class="prose prose-lg dark:prose-invert mx-auto mt-2 max-w-none"
     ></div>
   </article>
 </Layout>
