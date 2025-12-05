@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apk add --no-cache python3 make g++ vips-dev && rm -rf /var/cache/apk/*
 
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN npm install
 
 COPY . .
 RUN npm run build
