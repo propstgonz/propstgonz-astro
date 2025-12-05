@@ -1,5 +1,5 @@
 {
-  "name": "verdant-virgo",
+  "name": "propstgonz-web",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -19,9 +19,6 @@
     "market": "^1.0.0",
     "node-addon-api": "^8.5.0",
     "nodemailer": "^7.0.10",
-    "preact": "^10.27.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
     "sharp": "^0.34.3",
     "tailwindcss": "^4.1.11",
     "typed.js": "^2.1.0"
