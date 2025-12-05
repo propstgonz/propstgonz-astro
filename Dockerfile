@@ -11,7 +11,7 @@ COPY . .
 RUN npm run build
 
 RUN npm prune --prod
-
+RUN docker compose build --progress=plain --no-cache
 
 # ETAPA 2: PRODUCCIÓN
 FROM node:lts-alpine AS runner
