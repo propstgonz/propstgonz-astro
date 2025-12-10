@@ -75,26 +75,25 @@ export const computers = [
     id: 'server',
     name: 'propstg@propstgserver',
     ascii: `
-            .-/+oossssoo+/-.               propstg@propstgserver
-        \`:+ssssssssssssssssss+:\`           ---------------------
-      -+ssssssssssssssssssyyssss+-         OS: Ubuntu Server 24.04.2 LTS x86_64
-    .ossssssssssssssssssdMMMNysssso.       Host: X79SE PLUS
-   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 6.8.0-60-generic
-  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 7 days, 6 hours
- /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 1512 (dpkg), 4 (snap)
-.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.2.21
-+sssshhhyNMMNyssssssssssssyNMMMysssssss+   Resolution: 800x600
-ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Terminal: /dev/pts/0
-ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: Intel Xeon E5-2660 v2 (20) @ 3.000GHz
-+sssshhhyNMMNyssssssssssssyNMMMysssssss+   GPU: NVIDIA GeForce GTX 750
-.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Memory: 19232MiB / 32005MiB
- /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/
-  +sssssssssdmydMMMMMMMMddddyssssssss+
-   /ssssssssssshdmNNNNmyNMMMMhssssss/
-    .ossssssssssssssssssdMMMNysssso.
-      -+sssssssssssssssssyyyssss+-
-        \`:+ssssssssssssssssss+:\`
-            .-/+oossssoo+/-.       
+              .',;::::;,'.                propstgonz@propstgserver
+          .';:cccccccccccc:;,.            ------------------------
+        .;cccccccccccccccccccccc;.         OS: Fedora Linux 43 (Server Edition) x86_64
+      .:cccccccccccccccccccccccccc:.       Host: JINGSHA X79SE PLUS
+    .;ccccccccccccc;.:dddl:.;ccccccc;.     Kernel: 6.17.10-300.fc43.x86_64
+  .:ccccccccccccc;OWMKOOXMWd;ccccccc:.     Uptime: 18 hours, 52 mins
+  .:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.   Packages: 927 (rpm)
+  ,cccccccccccccc;MMM.;cc;;WW:;cccccccc,   Shell: zsh 5.9
+  :cccccccccccccc;MMM.;cccccccccccccccc:   Terminal: /dev/pts/0
+  :ccccccc;oxOOOo;MMM0OOk.;cccccccccccc:   CPU: Intel Xeon E5-2660 v2 (20) @ 3.000GHz
+  cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;   GPU: NVIDIA GeForce GTX 750
+  ccccc;XM0';cccc;MMM.;cccccccccccccccc'   Memory: 26707MiB / 31993MiB
+  ccccc;MMo;ccccc;MMW.;ccccccccccccccc;
+  ccccc;0MNc.ccc.xMMd;ccccccccccccccc;
+  cccccc;dNMWXXXWM0:;cccccccccccccc:,
+  cccccccc;.:odl:.;cccccccccccccc:,.
+  :cccccccccccccccccccccccccccc:'.
+  .:cccccccccccccccccccccc:;,..
+    '::cccccccccccccc::;,.      
     `,
     specs: {
       Host: 'X79SE PLUS',
