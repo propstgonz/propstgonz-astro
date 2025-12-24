@@ -45,9 +45,9 @@ export const cosas: Cosa[] = [
     link: "http://localhost:80",
   },
   {
-    img: "https://pbs.twimg.com/profile_images/1866395025740869632/bjM0BTeb_400x400.jpg",
-    title: "SHITTY RANDOM SITE",
-    description: "Random site",
-    link: "https://darkweb-websites.com/",
+    img: "https://www.productivepaths.com/wp-content/uploads/2023/09/desktop-computer-1636527182-6071832.jpeg",
+    title: "My computers specs",
+    description: "About my computer's hardware and SO",
+    link: "/computers",
   },
 ];
