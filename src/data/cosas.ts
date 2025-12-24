@@ -10,6 +10,9 @@ import type { Cosa } from "../types/cosas";
   },
 */
 
+/* To the guy reading this; indeed, i'm reusing my own code and its in
+  spanish. What do you expect? Rewrite everything? Nah, i'm so fucking lazy */
+
 export const cosas: Cosa[] = [
   {
     img: "/favicon.svg",
@@ -26,13 +29,13 @@ export const cosas: Cosa[] = [
   {
     img: "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png",
     title: "GitHub",
-    description: "My GitHub profile containing all my development projects",
-    link: "https://github.com/propstgonz",
+    description: "This page GitHub repository",
+    link: "https://github.com/propstgonz/propstgonz-portfolio",
   },
   {
     img: "/logbook.png",
     title: "Projects",
-    description: "Where I display all my deployed services",
+    description: "Where I display all my deployed services (Under dev rn)",
     link: "/projects",
   },
   {
