@@ -2,13 +2,16 @@ interface IpifyResponse {
   ip: string;
 }
 
-async function fetchClientIP(): Promise<void> {
+export async function fetchClientIP(): Promise<void> {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
-    if (!response.ok) throw new Error('Network response was not ok');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
 
     const data = (await response.json()) as IpifyResponse;
     const ipSpan = document.getElementById('client-ip');
+
     if (ipSpan) {
       ipSpan.textContent = data.ip;
     }
@@ -20,7 +23,3 @@ async function fetchClientIP(): Promise<void> {
     }
   }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  void fetchClientIP();
-});
