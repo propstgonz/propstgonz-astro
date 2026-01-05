@@ -3,35 +3,50 @@ export const computers = [
     id: 'main-pc',
     name: 'Propstgonz@B650',
     ascii: `
- lllllllllllllll   lllllllllllllll  Propstgonz@B650
- lllllllllllllll   lllllllllllllll  ------------
- lllllllllllllll   lllllllllllllll  OS: Windows 11 Pro [64 bits]
- lllllllllllllll   lllllllllllllll  Host: ASUS System Product Name
- lllllllllllllll   lllllllllllllll  Kernel: 10.0.26100.0
- lllllllllllllll   lllllllllllllll  Motherboard: TUF GAMING B650M-PLUS
- lllllllllllllll   lllllllllllllll  Uptime: 2 days 13 hours 12 minutes
-                                    Packages: (none)
- lllllllllllllll   lllllllllllllll  Shell: PowerShell v7.5.1
- lllllllllllllll   lllllllllllllll  Resolution: 2560x1440, 1920x1080
- lllllllllllllll   lllllllllllllll  Terminal: svchost
- lllllllllllllll   lllllllllllllll  CPU: AMD Ryzen 5 7600X
- lllllllllllllll   lllllllllllllll  GPU: AMD Radeon RX 7700 XT
- lllllllllllllll   lllllllllllllll  Memory: 20.49 GiB / 31.66 GiB (64%)
- lllllllllllllll   lllllllllllllll  Disk (C:): 149 GiB / 930 GiB (16%)
+             .',;::::;,'.                 propstgonz@B650-L
+         .';:cccccccccccc:;,.             -----------------
+      .;cccccccccccccccccccccc;.          OS: Fedora Linux 43 (KDE Plasma Desktop Edition) x86_64
+    .:cccccccccccccccccccccccccc:.        Host: B650 EAGLE (Default string-CF)
+  .;ccccccccccccc;.:dddl:.;ccccccc;.      Kernel: Linux 6.17.12-300.fc43.x86_64
+ .:ccccccccccccc;OWMKOOXMWd;ccccccc:.     Uptime: 35 mins
+.:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.    Packages: 2896 (rpm), 11 (flatpak)
+,cccccccccccccc;MMM.;cc;;WW:;cccccccc,    Shell: zsh 5.9
+:cccccccccccccc;MMM.;cccccccccccccccc:    Display (PHL 243V7): 1920x1080 @ 75 Hz in 24" [External]
+:ccccccc;oxOOOo;MMM000k.;cccccccccccc:    Display (Odyssey G5): 2560x1440 @ 144 Hz in 27" [External] *
+cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;    Display (2D FHD LG TV): 1920x1080 @ 60 Hz in 23" [External]
+ccccc;XMO';cccc;MMM.;cccccccccccccccc'    DE: KDE Plasma 6.5.4
+ccccc;MMo;ccccc;MMW.;ccccccccccccccc;     WM: KWin (Wayland)
+ccccc;0MNc.ccc.xMMd;ccccccccccccccc;      WM Theme: Layan
+cccccc;dNMWXXXWM0:;cccccccccccccc:,       Theme: Breeze (Dark) [Qt], Breeze-Dark [GTK2], Breeze [GTK3]
+cccccccc;.:odl:.;cccccccccccccc:,.        Icons: Reversal-orange-dark [Qt], breeze-dark [GTK2], Reversal-orange-dark [GTK3/4]
+ccccccccccccccccccccccccccccc:'.          Font: Noto Sans (10pt) [Qt], Noto Sans (10pt) [GTK2/3/4]
+:ccccccccccccccccccccccc:;,..             Cursor: volantes (24px)
+ ':cccccccccccccccc::;,.                  Terminal: tilix 1.9.6
+                                          Terminal Font: Monospace (11pt)
+                                          CPU: AMD Ryzen 5 7600X (12) @ 5.46 GHz
+                                          GPU: AMD Radeon RX 7700 XT [Discrete]
+                                          Memory: 7.78 GiB / 30.95 GiB (25%)
+                                          Swap: 0 B / 8.00 GiB (0%)
+                                          Disk (/): 24.17 GiB / 335.37 GiB (7%) - ext4
+                                          Disk (/home): 308.06 GiB / 915.80 GiB (34%) - ext4
+                                          Disk (/media/hdd): 1.36 TiB / 1.82 TiB (75%) - fuseblk
+                                          Disk (/media/intenso): 536.60 GiB / 937.82 GiB (57%) - ext4
+                                          Local IP (enp8s0): 192.168.1.117/24
+                                          Locale: en_GB.UTF-8
     `,
     specs: {
-      Host: 'ASUS System Product Name',
-      OS: 'Windows 11 Pro (64-bit)',
-      Kernel: '10.0.26100.0',
-      Motherboard: 'TUF GAMING B650M-PLUS',
-      Uptime: '2d 13h 12m',
-      Shell: 'PowerShell v7.5.1',
-      Resolution: '2560x1440, 1920x1080',
-      Terminal: 'svchost',
+      Host: 'B650 EAGLE (Default string-CF)',
+      OS: 'Fedora Linux 43 (KDE Plasma Desktop Edition) x86_64',
+      Kernel: 'Linux 6.17.12-300.fc43.x86_64',
+      Motherboard: 'Gigabyte B650 EAGLE',
+      Uptime: '35 mins',
+      Shell: 'zsh 5.9',
+      Resolution: '2560x1440 @144Hz, 1920x1080 @75Hz, 1920x1080 @60Hz',
+      Terminal: 'tilix 1.9.6',
       CPU: 'AMD Ryzen 5 7600X',
       GPU: 'AMD Radeon RX 7700 XT',
-      RAM: '20.49 / 31.66 GiB (64%)',
-      Disk: '149 / 930 GiB (16%)',
+      RAM: '7.78 / 30.95 GiB (25%)',
+      Disk: '24.17 / 335.37 GiB (/) · 308.06 / 915.80 GiB (/home)'
     },
   },
   {
