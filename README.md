@@ -1,5 +1,7 @@
 # In progress...
 
+Back-end link: https://github.com/propstgonz/propstgonz-portfolio-backend
+
 # THINGS TO DO
 
 1. ~~Refactor the ts code (Works fine, but I don't like how it looks rn).~~
@@ -18,4 +20,5 @@
 14. ~~Let the contact form email thing send archives.~~
 15. ~~Map the about me component~~
 16. ~~Fix the posts thing~~
+
 17. ~~Make posts sorted newest-first and paginate when there are 5 posts.~~
